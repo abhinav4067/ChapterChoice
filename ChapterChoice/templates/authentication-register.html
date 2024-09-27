@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  /<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/favicon-32x32.webp' %}" type="image/webp" />
+
+    <!-- CSS files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <!-- Plugins -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}" />
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+
+    <title>Shopingo - eCommerce HTML Template</title>
+  </head>
+
+  <body class="">
+    <!-- page loader -->
+    <div class="loader-wrapper">
+      <div class="d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle">
+        <div class="spinner-border text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!-- end loader -->
+
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
+
+    <!-- start page content -->
+    <div class="page-content">
+      <!-- start product details -->
+      <section class="section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-6 col-xl-5 col-xxl-5 mx-auto">
+              <div class="card rounded-0">
+                <div class="card-body p-4">
+                  <h4 class="mb-0 fw-bold text-center">Registration</h4>
+                  <hr />
+                  <p class="mb-2">Join / Sign Up using</p>
+                  <div class="social-login mb-4">
+                    <div class="row g-4">
+                      <div class="col-xl-6">
+                        <button type="button" class="btn bg-facebook btn-ecomm w-100 text-white"><i class="bi bi-facebook me-2"></i>Facebook</button>
+                      </div>
+                      <div class="col-xl-6">
+                        <button type="button" class="btn bg-pinterest btn-ecomm w-100 text-white"><i class="bi bi-google me-2"></i>Google</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="separator mb-4">
+                    <div class="line"></div>
+                    <p class="mb-0 fw-bold">Or</p>
+                    <div class="line"></div>
+                  </div>
+                  <form method="POST">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                      <div class="col-12">
+                        <label for="exampleName" class="form-label">Name</label>
+                        <input type="text" name="u_name" class="form-control rounded-0" />
+                      </div>
+                      <div class="col-12">
+                        <label for="exampleName" class="form-label">Phone number</label>
+                        <input type="integer" name="phone_num" class="form-control rounded-0" />
+                      </div>
+                      <div class="col-12">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male" checked />
+                          <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female" />
+                          <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="exampleEmail" class="form-label">Email ID</label>
+                        <input type="text" class="form-control rounded-0" name="email" />
+                      </div>
+
+                      <div class="col-12">
+                        <label for="floatingInputDOB">Date of Birth</label>
+                        <input name="dob" type="date" class="form-control rounded-0" id="floatingInputDOB" value="" />
+                      </div>
+
+                      <div class="col-12">
+                        <label for="exampleName" class="form-label">Location</label>
+                        <input type="text" name="location" class="form-control rounded-0" />
+                      </div>
+                      <div class="col-12">
+                        <label for="examplePassword" class="form-label">Password</label>
+                        <input type="text" class="form-control rounded-0" name="pass" />
+                      </div>
+                      <div class="col-12">
+                        <label for="examplePassword" class="form-label">Confirm Password</label>
+                        <input type="text" class="form-control rounded-0" name="cpass" />
+                      </div>
+                      <div class="col-12">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                          <label class="form-check-label" for="flexCheckDefault">I agree to Terms and Conditions</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <hr class="my-0" />
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-dark rounded-0 btn-ecomm w-100">Sign Up</button>
+                      </div>
+                      <div class="col-12 text-center">
+                        <p class="mb-0 rounded-0 w-100">
+                          Already have an account? <a href="{% url 'authentication-login' %}" class="text-danger">Sign In</a>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- -end row -->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end row -->
+        </div>
+      </section>
+      <!-- start product details -->
+    </div>
+    <!-- end page content -->
+
+    {% block footer %}
+      {% include 'footer.html' %}
+    {% endblock %}
+
+    <!-- Start Back To Top Button -->
+    <a href="javaScript:;" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- End Back To Top Button -->
+
+    <!-- JavaScript files -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/loader.js' %}"></script>
+  </body>
+</html>

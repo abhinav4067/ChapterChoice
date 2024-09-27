@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- favicon -->
+    <link rel="icon" href="images/favicon-32x32.webp" type="image/webp" />/
+
+    <!-- CSS files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <!-- Plugins -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+
+    <title>UV</title>
+  </head>
+
+  <body>
+    <!-- page loader -->
+    <div class="loader-wrapper">
+      <div class="d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle">
+        <div class="spinner-border text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!-- end loader -->
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
+
+    <!-- start page content -->
+    <div class="page-content">
+      <!-- start product details -->
+      <section class="section-padding">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-12 col-xl-6">
+              <h3 class="fw-bold">Our Story</h3>
+              <p>UrbanVox, a trailblazing watch company, emerged in 2010, founded by visionary watchmaker Alex Urban. Urban's passion for horology ignited during his youth, fostering a dream of blending timeless craftsmanship with contemporary urban flair.
+
+                In its nascent years, UrbanVox faced skepticism but swiftly captivated enthusiasts with avant-garde designs. Urban's commitment to innovation propelled the company, pioneering bold materials and unconventional mechanisms.
+                
+                By 2015, UrbanVox gained recognition for its fusion of precision engineering and urban aesthetics. Collaborations with renowned artists and designers propelled its reputation globally.
+                
+                In 2018, UrbanVox introduced its signature "Cityscape" collection, reflecting metropolitan skylines in intricate dials. This series resonated with urbanites seeking sophistication intertwined with metropolitan vibes.
+                
+                In 2020, UrbanVox unveiled its breakthrough "EcoTech" line, integrating sustainable materials and eco-conscious manufacturing processes. This initiative resonated with environmentally-conscious consumers, expanding UrbanVox's reach.
+                
+                By 2022, UrbanVox stood as a paradigm of contemporary watchmaking, blending tradition with innovation. Its commitment to quality, design, and sustainability ensured its enduring legacy in the horological landscape.</p>
+            </div>
+            <div class="col-12 col-xl-6">
+              <img src="/static/images/smart2.jpg" class="img-fluid" alt="" />
+            </div>
+          </div>
+          <!-- end row -->
+
+          <div class="separator section-padding">
+            <div class="line"></div>
+            <h3 class="mb-0 h3 fw-bold">Why Choose Us</h3>
+            <div class="line"></div>
+          </div>
+
+          <div class="row row-cols-1 row-cols-xl-3 g-4 why-choose">
+            <div class="col d-flex">
+              <div class="card rounded-0 shadow-none w-100">
+                <div class="card-body">
+                  <img src="{% static 'images/icons/delivery.webp' %}" width="60" alt="" />
+                  <h5 class="my-3 fw-bold">Free Shipping</h5>
+                  <p class="mb-0">Enjoy free shipping on orders exceeding ₹5000, making shopping with us convenient and cost-effective. Enhance your experience today!</p>
+                </div>
+              </div>
+            </div>
+            <div class="col d-flex">
+              <div class="card rounded-0 shadow-none w-100">
+                <div class="card-body">
+                  <img src="{% static 'images/icons/money-bag.webp' %}" width="60" alt="" />
+                  <h5 class="my-3 fw-bold">100% Back Gaurantee</h5>
+                  <p class="mb-0">Our 100% Money-Back Guarantee assures full refund if unsatisfied, ensuring confidence and trust in our products and services.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col d-flex">
+              <div class="card rounded-0 shadow-none w-100">
+                <div class="card-body">
+                  <img src="{% static 'images/icons/support.webp' %}" width="60" alt="" />
+                  <h5 class="my-3 fw-bold">Online Support 24/7</h5>
+                  <p class="mb-0">Online Support 24/7: Instant assistance anytime, anywhere; resolving queries, offering guidance, and ensuring seamless user experience around the clock.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="separator section-padding">
+            <div class="line"></div>
+            <h3 class="mb-0 h3 fw-bold">Shop By Brands</h3>
+            <div class="line"></div>
+          </div>
+
+          <div class="brands">
+            <div class="row row-cols-2 row-cols-lg-5 g-4">
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/01.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/02.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/03.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/04.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/05.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/06.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/07.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/08.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/09.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border rounded brand-box">
+                  <div class="d-flex align-items-center">
+                    <a href="javascript:;"><img src="{% static 'images/brands/10.webp' %}" class="img-fluid" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end row -->
+          </div>
+        </div>
+      </section>
+      <!-- start product details -->
+    </div>
+    <!-- end page content -->
+
+    {% block footer %}
+      {% include 'footer.html' %}
+    {% endblock %}
+
+    <!-- Start Back To Top Button -->
+    <a href="javaScript:;" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- End Back To Top Button -->
+
+    <!-- JavaScript files -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/slick/slick.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/loader.js' %}"></script>
+  </body>
+</html>

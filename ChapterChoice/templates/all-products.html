@@ -1,0 +1,210 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/favicon-32x32.webp' %}" type="image/webp" />
+
+    <!-- CSS files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <!-- Plugins -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}" />
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/search
+  .css' %}" rel="stylesheet" />
+
+    <title>UV</title>
+  </head>
+
+  <body>
+    <!-- page loader -->
+    <div class="loader-wrapper">
+      <div class="d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle">
+        <div class="spinner-border text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!-- end loader -->
+
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
+
+    <!-- start page content -->
+    <div class="page-content">
+      <section class="section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="shop-right-sidebar">
+              <div class="product-grid mt-4">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                  {% for d, price in zipped_data %}
+                    <div class="col">
+                      <div class="card border shadow-none">
+                        <div class="position-relative overflow-hidden">
+                          <div class="product-options d-flex align-items-center justify-content-center gap-2 mx-auto position-absolute bottom-0 start-0 end-0">
+                            <a href="{% url 'addToWishlistFromAllProducts' d.id %}" name="addToWishlistFromAllProducts" class="bg-dark"><i class="bi text-light bi-heart"></i></a>
+
+                            <a href="{% url 'addToCartFromAllProducts' d.id %}" name="addToCartFromAllProducts" class="bg-dark" name="addToCartFromAllProducts"><i class="bi text-light bi-basket3"></i></a>
+                          </div>
+                          <a href="{% url 'product-details' d.id %}"><img src="/static/media/{{ d.product_image1 }}" style="height: 200px;" class="card-img-top" alt="..." /></a>
+                        </div>
+                        <div class="card-body border-top">
+                          <h5 class="mb-0 fw-bold product-short-title">{{ d.product_brand }}</h5>
+
+                          <p class="mb-0 product-short-name">{{ d.product_name }}</p>
+
+                          <div class="product-price d-flex align-items-center gap-2 mt-2">
+                            <div class="h6 fw-bold">{{ price }}</div>
+
+                            <div class="h6 fw-light text-muted text-decoration-line-through">{{ d.product_price }}</div>
+                            <div class="h6 fw-bold text-danger">({{ d.product_offer }}% off)</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+
+                  {% for d in results %}
+                    <div class="col">
+                      <div class="card border shadow-none">
+                        <div class="position-relative overflow-hidden">
+                          <div class="product-options d-flex align-items-center justify-content-center gap-2 mx-auto position-absolute bottom-0 start-0 end-0">
+                            <a href="{% url 'addToWishlistFromAllProducts' d.id %}" name="addToWishlistFromAllProducts" class="bg-dark"><i class="bi text-light bi-heart"></i></a>
+
+                            <a href="{% url 'addToCartFromAllProducts' d.id %}" name="addToCartFromAllProducts" class="bg-dark" name="addToCartFromAllProducts"><i class="bi text-light bi-basket3"></i></a>
+                          </div>
+                          <a href="{% url 'product-details' d.id %}"><img src="/static/media/{{ d.product_image1 }}" style="height: 200px;" class="card-img-top" alt="..." /></a>
+                        </div>
+                        <div class="card-body border-top">
+                          <h5 class="mb-0 fw-bold product-short-title">{{ d.product_brand }}</h5>
+
+                          <p class="mb-0 product-short-name">{{ d.product_name }}</p>
+
+                          <div class="product-price d-flex align-items-center gap-2 mt-2">
+                            <div class="h6 fw-bold">{{ d.product_price }}</div>
+                            <div class="h6 fw-light text-muted text-decoration-line-through">$2089</div>
+                            <div class="h6 fw-bold text-danger">({{ d.product_offer }} %off)</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+
+                  <!-- analog -->
+
+                  {% for d in analog %}
+                    <div class="col">
+                      <div class="card border shadow-none">
+                        <div class="position-relative overflow-hidden">
+                          <div class="product-options d-flex align-items-center justify-content-center gap-2 mx-auto position-absolute bottom-0 start-0 end-0">
+                            <a href="{% url 'addToWishlist' d.id %}" class="bg-dark"><i class="bi text-light bi-heart"></i></a>
+
+                            <a href="{% url 'addToCart' d.id %}" name="cart" class="bg-dark" name="addToCart"><i class="bi text-light bi-basket3"></i></a>
+                          </div>
+                          <a href="{% url 'product-details' d.id %}"><img src="/static/media/{{ d.product_image1 }}" style="height: 200px;" class="card-img-top" alt="..." /></a>
+                        </div>
+                        <div class="card-body border-top">
+                          <h5 class="mb-0 fw-bold product-short-title">{{ d.product_brand }}</h5>
+                          <p class="mb-0 product-short-name">{{ d.product_name }}</p>
+                          <div class="product-price d-flex align-items-center gap-2 mt-2">
+                            {% for i in offer_price %}
+                              <div class="h6 fw-bold">{{ i }}</div>
+                            {% endfor %}
+                            <div class="h6 fw-light text-muted text-decoration-line-through">{{ d.product_price }}</div>
+                            <div class="h6 fw-bold text-danger">({{ d.product_offer }}% off)</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+
+                  {% for d in smart %}
+                    <div class="col">
+                      <div class="card border shadow-none">
+                        <div class="position-relative overflow-hidden">
+                          <div class="product-options d-flex align-items-center justify-content-center gap-2 mx-auto position-absolute bottom-0 start-0 end-0">
+                            <a href="{% url 'addToWishlist' d.id %}" name="addToWishlist" class="bg-dark"><i class="bi text-light bi-heart"></i></a>
+
+                            <a href="{% url 'addToCart' d.id %}" name="cart" class="bg-dark" name="addToCart"><i class="bi text-light bi-basket3"></i></a>
+                          </div>
+                          <a href="{% url 'product-details' d.id %}"><img src="/static/media/{{ d.product_image1 }}" style="height: 200px;" class="card-img-top" alt="..." /></a>
+                        </div>
+                        <div class="card-body border-top">
+                          <h5 class="mb-0 fw-bold product-short-title">{{ d.product_brand }}</h5>
+                          {% for d in results %}
+                            <p class="mb-0 product-short-name">{{ d.product_name }}</p>
+                          {% endfor %}
+                          <div class="product-price d-flex align-items-center gap-2 mt-2">
+                            <div class="h6 fw-bold">{{ d.product_price }}</div>
+                            <div class="h6 fw-bold text-danger">({{ d.product_offer }} %off)</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+
+                  {% for d in digital %}
+                    <div class="col">
+                      <div class="card border shadow-none">
+                        <div class="position-relative overflow-hidden">
+                          <div class="product-options d-flex align-items-center justify-content-center gap-2 mx-auto position-absolute bottom-0 start-0 end-0">
+                            <a href="{% url 'addToWishlist' d.id %}" name="addToWishlist" class="bg-dark"><i class="bi text-light bi-heart"></i></a>
+
+                            <a href="{% url 'addToCart' d.id %}" name="cart" class="bg-dark" name="addToCart"><i class="bi text-light bi-basket3"></i></a>
+                          </div>
+                          <a href="{% url 'product-details' d.id %}"><img src="/static/media/{{ d.product_image1 }}" style="height: 200px;" class="card-img-top" alt="..." /></a>
+                        </div>
+                        <div class="card-body border-top">
+                          <h5 class="mb-0 fw-bold product-short-title">{{ d.product_brand }}</h5>
+                          <p class="mb-0 product-short-name">{{ d.product_name }}</p>
+                          <div class="product-price d-flex align-items-center gap-2 mt-2">
+                            <div class="h6 fw-bold">{{ d.product_price }}</div>
+                           
+                            <div class="h6 fw-bold text-danger">({{ d.product_offer }} %off)</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+                <!-- end row -->
+              </div>
+
+              <hr class="my-4" />
+            </div>
+            <!-- end row -->
+          </div>
+        </div>
+      </section>
+      <!-- start product details -->
+    </div>
+    <!-- end page content -->
+
+    {% block footer %}
+      {% include 'footer.html' %}
+    {% endblock %}
+    <!-- Start Back To Top Button -->
+    <a href="javaScript:;" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- End Back To Top Button -->
+
+    <!-- JavaScript files -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/loader.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+  </body>
+</html>

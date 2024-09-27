@@ -1,0 +1,268 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--favicon-->
+	<link rel="icon" href="{% static 'images/favicon-32x32.webp' %}" type="image/webp" />
+
+  <!-- CSS files -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <!-- Plugins -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}" />
+
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet">
+
+  <title>UV</title>
+</head>
+
+<body>
+
+  <!--page loader-->
+  <div class="loader-wrapper">
+   <div class="d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle">
+     <div class="spinner-border text-dark" role="status">
+       <span class="visually-hidden">Loading...</span>
+     </div>
+   </div>
+ </div>
+<!--end loader-->
+{% block navbar %}
+ {% include 'navbar.html' %}
+ {% endblock %}
+
+
+<!--start page content-->
+<div class="page-content">
+
+   <!--start breadcrumb-->
+   <div class="py-4 border-bottom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0"> 
+          <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+          <li class="breadcrumb-item"><a href="javascript:;">checkout</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Billing Details</li>
+        </ol>
+      </nav>
+    </div>
+   </div>
+   <!--end breadcrumb-->
+
+   <!--start product details-->
+   <section class="section-padding">
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="container">
+      <div class="d-flex align-items-center px-3 py-2 border mb-4">
+        <div class="text-start">
+          <h4 class="mb-0 h4 fw-bold">Billing Details</h4>
+       </div>
+      </div>
+	   <div class="row g-4">
+	     <div class="col-12 col-lg-8 col-xl-8">
+
+        <h6 class="fw-bold mb-3 py-2 px-3 bg-light">Personal Details</h6>
+		    <div class="card rounded-0 mb-3">
+			  <div class="card-body">
+			    <div class="row g-3">
+             <div class="col-12 col-lg-6">
+              <div class="form-floating">
+                <input type="text" name="fname" class="form-control rounded-0" id="floatingFirstName" placeholder="First Name">
+                <label for="floatingFirstName">First Name</label>
+              </div>
+             </div>
+             <div class="col-12 col-lg-6">
+              <div class="form-floating">
+                <input type="text" name="lname" class="form-control rounded-0" id="floatingLastName" placeholder="Last Name">
+                <label for="floatingLastName">Last Name</label>
+              </div>
+             </div>
+             <div class="col-12 col-lg-6">
+              <div class="form-floating">
+                <input type="text" name="email" class="form-control rounded-0" id="floatingEmail" placeholder="Email">
+                <label for="floatingEmail">Email</label>
+              </div>
+             </div>
+
+             <div class="col-12 col-lg-6">
+              <div class="form-floating">
+                <input type="text" name="mobile_num" class="form-control rounded-0" id="floatingMobileNo" placeholder="Mobile No">
+                <label for="floatingMobileNo">Mobile No</label>
+              </div>
+             </div>
+          </div><!--end row-->
+			  </div>
+			</div> 
+
+      <h6 class="fw-bold mb-3 py-2 px-3 bg-light">Shipping Details</h6>
+		    <div class="card rounded-0">
+			  <div class="card-body">
+          <div class="row g-3">
+            <div class="col-12 col-lg-12">
+             <div class="form-floating">
+               <input type="text" name="street_address" class="form-control rounded-0" id="floatingStreetAddress" placeholder="Street Address">
+               <label for="floatingStreetAddress">Street Address</label>
+             </div>
+            </div>
+            <div class="col-12 col-lg-4">
+             <div class="form-floating">
+               <input type="text" name="pincode" class="form-control rounded-0" id="floatingZipCode" placeholder="Zip Code">
+               <label for="floatingZipCode">Zip Code</label>
+             </div>
+            </div>
+            <div class="col-12 col-lg-4">
+             <div class="form-floating">
+               <input type="text" name="city" class="form-control rounded-0" id="floatingCity" placeholder="City">
+               <label for="floatingCity">City</label>
+             </div>
+            </div>
+            <div class="col-12 col-lg-4">
+             <div class="form-floating">
+               <input type="text" name="country" class="form-control rounded-0" id="floatingCountry" placeholder="Country">
+               <label for="floatingCountry">Country</label>
+             </div>
+            </div>
+         </div><!--end row-->
+			  </div>
+			</div> 
+
+
+		 </div>
+		 <div class="col-12 col-lg-4 col-xl-4">
+		     <div class="card rounded-0 mb-3">
+           <div class="card-body">
+             <h5 class="fw-bold mb-4">Order Summary</h5>
+             
+             <div class="hstack align-items-center justify-content-between">
+               <p class="mb-0">Bag Total</p>
+               <p class="mb-0">:{{total}} </p>
+             </div>
+             <hr>
+             <div class="hstack align-items-center justify-content-between">
+              <p class="mb-0">Bag discount</p>
+              <p class="mb-0 text-success">-{{offer}}</p>
+            </div>
+            <hr>
+            <div class="hstack align-items-center justify-content-between">
+              <p class="mb-0">Delivery</p>
+                    <p class="mb-0">{% if total >= 5000 %}
+                      <span> Free Shipping </span>
+
+                    
+                      {% else %}
+                      <span> 50 </span>
+                    
+                      {% endif %}
+                    </p>
+            </div>
+            <hr>
+            <div class="hstack align-items-center justify-content-between fw-bold text-content">
+              <p class="mb-0">Total Amount</p>
+              <p class="mb-0">{{last_total}}</p>
+            </div>
+           
+           
+           </div>
+         </div>
+
+		 </div>
+	 </div><!--end row-->
+       
+    </div>
+    <div class="accordion " id="accordionExample" >
+      <p class="text"><i class="bi bi-arrow-right-short"></i> Payment Method </p>
+      <div class="accordion-item bg-light ">
+          <h5 class="accordion-header" id="headingOne">
+              <button class="accordion-button border-0 bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <input type="radio" name="radioNoLabel" id="radioNoLabel1">
+              
+                  <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/batman-returns/logos/UPI.gif"
+                      class="rounded" style="width: 30px; height: 30px; margin-left: 10px;">
+                  <span > UPI</span>
+              </button>
+  
+          </h5>
+  
+          <div id="collapseOne" class="accordion-collapse collapse show "style="padding-left: 20px;" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <p>enter your UPI ID</p>
+              <div class="form-floating mb-3 me-4">
+                  <input type="text" class="form-control " id="floatingInput" placeholder="UPI ID HERE">
+                  <label style="font-size: x-small; " for="floatingInput">UPI ID
+                      HERE</label>
+                  <a href="">verify your UPI ID</a>
+              </div>
+  
+  
+  
+  
+              <div class="d-grid mt-3 me-4">
+                  <button class="btn btn-dark text-white" style="width: 100%; " type="submit">Place
+                      Order </button>
+  
+              </div>
+          </div>
+      </div>
+  
+       
+      <div class="accordion-item mt-3">
+          <h5 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed border-0 bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <input type="radio" name="radioNoLabel" id="radioNoLabel1">
+                  <span style="margin-left: 10px;" > Cash On Delivery</span>
+                </button>
+            </h5>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="ms-4" style="padding-left: 20px;">
+                    <p class="mt-2"><i class="bi bi-box-seam-fill"></i> You Selected Cash ON
+                        DElivery For YOur Order...</p>
+                    <button type="submit"  class=" btn btn-dark mt-3"
+                        style="width: 100%;">Place
+                        Order</button>
+                </div>  
+            </div>
+        </div>
+    </div>  
+  </form>
+  </section>
+   <!--start product details-->
+
+
+  
+  
+ </div>
+  <!--end page content--><div class="container">
+   
+
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+
+
+<!--Start Back To Top Button-->
+  <a href="javaScript:;" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!--End Back To Top Button-->
+  
+
+   <!-- JavaScript files -->
+   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+   <script src="{% static 'js/slick.min.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+   <script src="{% static 'js/loader.js' %}"></script>
+
+
+</body>
+
+</html>
