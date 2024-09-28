@@ -100,19 +100,19 @@
                       {% csrf_token %}
                       <div class="col">
                         <div class="form-floating">
-                          <input name="u_name" type="text" class="form-control rounded-0" id="floatingInputName" placeholder="Name" value="jhon Deo" />
+                          <input name="u_name" type="text" class="form-control rounded-0" id="floatingInputName" placeholder="Name" />
                           <label for="floatingInputName">Name</label>
                         </div>
                       </div>
                       <div class="col">
                         <div class="form-floating">
-                          <input name="u_mobile" type="text" class="form-control rounded-0" id="floatingInputNumber" placeholder="Name" value="+99-85XXXXXXXX" />
+                          <input name="u_mobile" type="text" class="form-control rounded-0" id="floatingInputNumber" placeholder="Name" minlength="10" oninput="this.value = this.value.slice(0, 10)" />
                           <label for="floatingInputNumber">Mobile Number</label>
                         </div>
                       </div>
                       <div class="col">
                         <div class="form-floating">
-                          <input name="u_email" type="text" class="form-control rounded-0" id="floatingInputEmail" placeholder="Email" value="name@example.com" />
+                          <input name="u_email" type="text" class="form-control rounded-0" id="floatingInputEmail" placeholder="Email" />
                           <label for="floatingInputEmail">Email</label>
                         </div>
                       </div>
@@ -134,7 +134,7 @@
                       </div>
                       <div class="col">
                         <div class="form-floating">
-                          <input name="u_location" type="text" class="form-control rounded-0" id="floatingInputLocation" placeholder="Location" value="United Kingdom" />
+                          <input name="u_location" type="text" class="form-control rounded-0" id="floatingInputLocation" placeholder="Location" />
                           <label for="floatingInputLocation">Location</label>
                         </div>
                       </div>

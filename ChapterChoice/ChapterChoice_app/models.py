@@ -27,7 +27,7 @@ class Login(AbstractUser):
 class user_reg(models.Model):
     user=models.OneToOneField(Login,on_delete=models.CASCADE,null=True)
     u_name=models.CharField(max_length=50,null=True)
-    u_mobile=models.IntegerField(null=True)
+    u_mobile=models.CharField(max_length=10,null=True)
     location=models.TextField(max_length=100,null=True)
     u_email=models.EmailField(null=True)
     dob=models.DateField( null=True)
@@ -46,12 +46,10 @@ class Book(models.Model):
     Book_description=models.TextField(max_length=300,null=True)
     Book_price=models.IntegerField(null=True)
     Book_image1=models.ImageField(null=True) 
-    Book_image2=models.ImageField(null=True) 
-    Book_image3=models.ImageField(null=True) 
-    Book_image4=models.ImageField(null=True) 
+   
     priority=models.IntegerField(default=5)
     Book_category=models.CharField(max_length=100,null=True)
-    Book_brand=models.CharField(max_length=100,null=True)
+    Book_author=models.CharField(max_length=100,null=True)
     Book_offer=models.IntegerField(default=1)
     Book_qty=models.IntegerField(default=1)
 

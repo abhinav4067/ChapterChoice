@@ -614,12 +614,7 @@ h6 {
 
 
 .subscribe-banner {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.542), rgba(0, 0, 0, 0.73)),
-    url('https://images.pexels.com/photos/5864245/pexels-photo-5864245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-position: center;
-  background-size: cover;
-  background-attachment: scroll;
+ background-color: grey;
 }
 
 .bubscribe-control {

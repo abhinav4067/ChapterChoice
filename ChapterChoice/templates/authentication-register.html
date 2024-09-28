@@ -64,53 +64,63 @@
                     <p class="mb-0 fw-bold">Or</p>
                     <div class="line"></div>
                   </div>
+                  {% if messages %}
+                  <ul class="messages">
+                      {% for message in messages %}
+                          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+              {% endif %}
+              
                   <form method="POST">
                     {% csrf_token %}
                     <div class="row g-4">
                       <div class="col-12">
                         <label for="exampleName" class="form-label">Name</label>
-                        <input type="text" name="u_name" class="form-control rounded-0" />
+                        <input type="text" name="u_name" class="form-control rounded-0" required/>
                       </div>
                       <div class="col-12">
                         <label for="exampleName" class="form-label">Phone number</label>
-                        <input type="integer" name="phone_num" class="form-control rounded-0" />
-                      </div>
+                        <input type="number" name="phone_num" class="form-control rounded-0" maxlength="10" minlength="10" oninput="this.value = this.value.slice(0, 10)" required />
+                        <small>Enter a 10-digit phone number</small>
+                    </div>
+                    
                       <div class="col-12">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male" checked />
+                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male" checked required/>
                           <label class="form-check-label" for="inlineRadio1">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female" />
+                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female"required />
                           <label class="form-check-label" for="inlineRadio2">Female</label>
                         </div>
                       </div>
 
                       <div class="col-12">
                         <label for="exampleEmail" class="form-label">Email ID</label>
-                        <input type="text" class="form-control rounded-0" name="email" />
+                        <input type="text" class="form-control rounded-0" name="email" required />
                       </div>
 
                       <div class="col-12">
                         <label for="floatingInputDOB">Date of Birth</label>
-                        <input name="dob" type="date" class="form-control rounded-0" id="floatingInputDOB" value="" />
+                        <input name="dob" type="date" class="form-control rounded-0" id="floatingInputDOB" value="" required />
                       </div>
 
                       <div class="col-12">
                         <label for="exampleName" class="form-label">Location</label>
-                        <input type="text" name="location" class="form-control rounded-0" />
+                        <input type="text" name="location" class="form-control rounded-0" required/>
                       </div>
                       <div class="col-12">
                         <label for="examplePassword" class="form-label">Password</label>
-                        <input type="text" class="form-control rounded-0" name="pass" />
+                        <input type="text" class="form-control rounded-0" name="pass" required/>
                       </div>
                       <div class="col-12">
                         <label for="examplePassword" class="form-label">Confirm Password</label>
-                        <input type="text" class="form-control rounded-0" name="cpass" />
+                        <input type="text" class="form-control rounded-0" name="cpass" required/>
                       </div>
                       <div class="col-12">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required />
                           <label class="form-check-label" for="flexCheckDefault">I agree to Terms and Conditions</label>
                         </div>
                       </div>

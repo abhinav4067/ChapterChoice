@@ -67,7 +67,7 @@
               <h4 class="mb-0 h4 fw-bold">Wishlist ({{count}} Items)</h4>
             </div>
             <div class="ms-auto">
-              <a href="{% url 'all-products' %}" class="btn btn-light btn-ecomm">
+              <a href="{% url 'all-Books' %}" class="btn btn-light btn-ecomm">
                 Continue Shopping
               </a>
             </div>
@@ -85,24 +85,24 @@
                   ><a href="{% url 'RemoveWishlist' d.id %}" class="btn-close wishlist-close position-absolute end-0 top-0"></a></div>
                   <a href="javascript:;">
                     <img
-                      src="/static/media/{{d.product_id.product_image1}}"
+                      src="/static/media/{{d.Book_id.Book_image1}}"
                       alt="" style="height: 180px;"
                       class="card-img-top rounded-0"
                     />
                   </a>
                   <div class="card-body border-top text-center">
-                    <p class="mb-0 product-short-name">{{d.product_id.product_name}}</p>
+                    <p class="mb-0 product-short-name">{{d.Book_id.Book_name}}</p>
                     <div
                       class="product-price d-flex align-items-center gap-2 mt-2 justify-content-center"
                     >
-                      <div class="h6 fw-bold">{{d.product_id.product_price}}</div>
+                      <div class="h6 fw-bold">{{d.Book_id.Book_price}}</div>
                      
                       
                     </div>
                   </div>
                   <div class="card-footer bg-transparent text-center">
                    
-                    <a href="{% url 'addToCartFromWish' d.product_id.id %}" class="btn btn-ecomm w-100 bg-dark text-light">
+                    <a href="{% url 'addToCartFromWish' d.Book_id.id %}" class="btn btn-ecomm w-100 bg-dark text-light">
                       Move to Bag</a>
                    
                   </div>

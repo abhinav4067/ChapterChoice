@@ -2,13 +2,14 @@
 <!-- start top header -->
 <header class="top-header">
   <nav class="navbar navbar-expand-xl w-100 navbar-dark container gap-3">
-    <a class="navbar-brand d-none d-xl-inline" href="{% url 'index' %}"><img src="{% static 'images/logo.jpg' %}" style="width: 60%;" class="logo-img" alt="" /></a>
+    <a class="navbar-brand d-none d-xl-inline" href="{% url 'index' %}"><img src="{% static 'images/logo.jpg' %}" style="width: 50px; height: 50px;" class="logo-img" alt="" /></a>
     <a class="mobile-menu-btn d-inline d-xl-none" href="javascript:;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="bi bi-list"></i></a>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
       <div class="offcanvas-header">
         <div class="offcanvas-logo">
           <img src="{% static 'images/logo.jpg' %}" class="logo-img" alt="" />
         </div>
+
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body primary-menu">
@@ -18,7 +19,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link" href="{% url 'all-products' %}">Shop</a>
+            <a class="nav-link" href="{% url 'all-Books' %}">Shop</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about-us' %}">About</a>
